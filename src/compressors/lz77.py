@@ -1,4 +1,4 @@
-from compressor import Compressor
+from src.compressors.compressor import Compressor
 
 
 class LZ77(Compressor):

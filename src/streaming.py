@@ -4,9 +4,7 @@ import sys
 import cv2
 import numpy as np
 
-from huffman import Huffman
-from lz77 import LZ77
-from utils import calculate_transmission_time
+from src.utils import calculate_transmission_time
 
 
 def execute_streaming(compressor_cls, serialization=False):
@@ -20,6 +18,9 @@ def execute_streaming(compressor_cls, serialization=False):
     # Define a largura e altura do frame
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, desired_width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, desired_height)
+
+    print(f"--------------- EXECUCAO "
+          f"{compressor_cls.__name__} ---------------")
 
     while True:
         ret, frame = cap.read()
@@ -49,8 +50,6 @@ def execute_streaming(compressor_cls, serialization=False):
             size_compressed,
             10)
 
-        print(f"--------------- EXECUCAO "
-              f"{compressor_cls.__name__} ---------------")
         print(
             f"Tamanho Original: {size_original} bytes, Tempo de Transmissão: {transmission_time_original:.6f} s")
         print(
@@ -66,8 +65,3 @@ def execute_streaming(compressor_cls, serialization=False):
             break
     cap.release()
     cv2.destroyAllWindows()
-
-
-if __name__ == '__main__':
-    # execute_streaming(Huffman)
-    execute_streaming(LZ77)
