@@ -9,15 +9,15 @@ from src.utils import calculate_transmission_time
 
 def execute_streaming(compressor_cls, serialization=False):
     # Inicialização da captura de vídeo
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
     # Define a resolução desejada
-    desired_width = 1280
-    desired_height = 720
-
-    # Define a largura e altura do frame
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, desired_width)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, desired_height)
+    # desired_width = 1280
+    # desired_height = 720
+    #
+    # # Define a largura e altura do frame
+    # cap.set(cv2.CAP_PROP_FRAME_WIDTH, desired_width)
+    # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, desired_height)
 
     print(f"--------------- EXECUCAO "
           f"{compressor_cls.__name__} ---------------")

@@ -6,7 +6,7 @@ class LZ77(Compressor):
     def __init__(self, data):
         super().__init__(data)
 
-    def _compress(self, window_size=1000):
+    def _compress(self, window_size=20):
         """Comprime os dados usando o algoritmo LZ77."""
         compressed_data = []
         i = 0
